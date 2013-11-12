@@ -335,7 +335,7 @@ boot.tmle3<-function(trials){
 	W1<-W[,1]
 	W2<-W[,2]
 
-	fit.tmle<-tmle(Y=sampled.data$y, A=sampled.data$t, W=W, Delta=sampled.data$insubsample, Qform=Y ~A + poly(W2,2) + A:W1, g1W=sampled.data$pscore.svy, pDelta1=as.matrix(cbind(sampled.data$a0s1.ps, sampled.data$a1s1.ps)))
+	fit.tmle<-tmle(Y=sampled.data$y, A=sampled.data$t, W=W, Delta=sampled.data$insubsample, Qform=Y ~A + poly(W2,2) + A:W1, g1W=sampled.data$pscore.svy, pDelta1=(1/sampled.data$ipsvyselwt)*cbind(sampled.data$a0s1.ps, sampled.data$a1s1.ps), gbound=0.0001)
 
 	sampled.data$dif<-fit.tmle$Qstar[,2] - fit.tmle$Qstar[,1]
 	sampled.data$num<-sampled.data$dif*sampled.data$ipsvyselwt
@@ -374,7 +374,7 @@ boot.tmle3T1<-function(trials){
 	W1<-W[,1]
 	W2<-W[,2]
 
-	fit.tmle<-tmle(Y=sampled.data$y, A=sampled.data$t, W=W, Delta=sampled.data$insubsample, Qform=Y ~A + poly(W2,2) + A:W1, g1W=sampled.data$pscore.svy, pDelta1=as.matrix(cbind(sampled.data$a0s1.ps, sampled.data$a1s1.ps)))
+	fit.tmle<-tmle(Y=sampled.data$y, A=sampled.data$t, W=W, Delta=sampled.data$insubsample, Qform=Y ~A + poly(W2,2) + A:W1, g1W=sampled.data$pscore.svy, pDelta1=(1/sampled.data$ipsvyselwt)*cbind(sampled.data$a0s1.ps, sampled.data$a1s1.ps), gbound=0.0001)
 
 	sampled.data$dif<-fit.tmle$Qstar[,2] - fit.tmle$Qstar[,1]
 	sampled.data$num<-sampled.data$dif*sampled.data$ipsvyselwt
@@ -413,7 +413,7 @@ boot.tmle3T2<-function(trials){
 	W1<-W[,1]
 	W2<-W[,2]
 
-	fit.tmle<-tmle(Y=sampled.data$y, A=sampled.data$t, W=W, Delta=sampled.data$insubsample, Qform=Y ~A + poly(W2,2) + A:W1, g1W=sampled.data$pscore.svy, pDelta1=as.matrix(cbind(sampled.data$a0s1.ps, sampled.data$a1s1.ps)))
+	fit.tmle<-tmle(Y=sampled.data$y, A=sampled.data$t, W=W, Delta=sampled.data$insubsample, Qform=Y ~A + poly(W2,2) + A:W1, g1W=sampled.data$pscore.svy, pDelta1=(1/sampled.data$ipsvyselwt)*cbind(sampled.data$a0s1.ps, sampled.data$a1s1.ps), gbound=0.0001)
 
 	sampled.data$dif<-fit.tmle$Qstar[,2] - fit.tmle$Qstar[,1]
 	sampled.data$num<-sampled.data$dif*sampled.data$ipsvyselwt
@@ -452,7 +452,7 @@ boot.tmle3S1<-function(trials){
 	W1<-W[,1]
 	W2<-W[,2]
 
-	fit.tmle<-tmle(Y=sampled.data$y, A=sampled.data$t, W=W, Delta=sampled.data$insubsample, Qform=Y ~A + poly(W2,2) + A:W1, g1W=sampled.data$pscore.svy, pDelta1=as.matrix(cbind(sampled.data$a0s1.ps, sampled.data$a1s1.ps)))
+	fit.tmle<-tmle(Y=sampled.data$y, A=sampled.data$t, W=W, Delta=sampled.data$insubsample, Qform=Y ~A + poly(W2,2) + A:W1, g1W=sampled.data$pscore.svy, pDelta1=(1/sampled.data$ipsvyselwt)*cbind(sampled.data$a0s1.ps, sampled.data$a1s1.ps), gbound=0.0001)
 
 	sampled.data$dif<-fit.tmle$Qstar[,2] - fit.tmle$Qstar[,1]
 	sampled.data$num<-sampled.data$dif*sampled.data$ipsvyselwt
@@ -491,7 +491,7 @@ boot.tmle3S2<-function(trials){
 	W1<-W[,1]
 	W2<-W[,2]
 
-	fit.tmle<-tmle(Y=sampled.data$y, A=sampled.data$t, W=W, Delta=sampled.data$insubsample, Qform=Y ~A + poly(W2,2) + A:W1, g1W=sampled.data$pscore.svy, pDelta1=as.matrix(cbind(sampled.data$a0s1.ps, sampled.data$a1s1.ps)))
+	fit.tmle<-tmle(Y=sampled.data$y, A=sampled.data$t, W=W, Delta=sampled.data$insubsample, Qform=Y ~A + poly(W2,2) + A:W1, g1W=sampled.data$pscore.svy, pDelta1=(1/sampled.data$ipsvyselwt)*cbind(sampled.data$a0s1.ps, sampled.data$a1s1.ps), gbound=0.0001)
 
 	sampled.data$dif<-fit.tmle$Qstar[,2] - fit.tmle$Qstar[,1]
 	sampled.data$num<-sampled.data$dif*sampled.data$ipsvyselwt
@@ -530,7 +530,7 @@ boot.tmle3O1<-function(trials){
 	W1<-W[,1]
 	W2<-W[,2]
 
-	fit.tmle<-tmle(Y=sampled.data$y, A=sampled.data$t, W=W, Delta=sampled.data$insubsample, Qform=Y ~A + W2 + A:W1, g1W=sampled.data$pscore.svy, pDelta1=as.matrix(cbind(sampled.data$a0s1.ps, sampled.data$a1s1.ps)))
+	fit.tmle<-tmle(Y=sampled.data$y, A=sampled.data$t, W=W, Delta=sampled.data$insubsample, Qform=Y ~A + W2 + A:W1, g1W=sampled.data$pscore.svy, pDelta1=(1/sampled.data$ipsvyselwt)*cbind(sampled.data$a0s1.ps, sampled.data$a1s1.ps), gbound=0.0001)
 
 	sampled.data$dif<-fit.tmle$Qstar[,2] - fit.tmle$Qstar[,1]
 	sampled.data$num<-sampled.data$dif*sampled.data$ipsvyselwt
@@ -569,7 +569,7 @@ boot.tmle3O2<-function(trials){
 	W1<-W[,1]
 	W2<-W[,2]
 
-	fit.tmle<-tmle(Y=sampled.data$y, A=sampled.data$t, W=W, Delta=sampled.data$insubsample, Qform=Y ~A + A:W1, g1W=sampled.data$pscore.svy, pDelta1=as.matrix(cbind(sampled.data$a0s1.ps, sampled.data$a1s1.ps)))
+	fit.tmle<-tmle(Y=sampled.data$y, A=sampled.data$t, W=W, Delta=sampled.data$insubsample, Qform=Y ~A + A:W1, g1W=sampled.data$pscore.svy, pDelta1=(1/sampled.data$ipsvyselwt)*cbind(sampled.data$a0s1.ps, sampled.data$a1s1.ps), gbound=0.0001)
 
 	sampled.data$dif<-fit.tmle$Qstar[,2] - fit.tmle$Qstar[,1]
 	sampled.data$num<-sampled.data$dif*sampled.data$ipsvyselwt
@@ -608,7 +608,7 @@ boot.tmle3O3<-function(trials){
 	W1<-W[,1]
 	W2<-W[,2]
 
-	fit.tmle<-tmle(Y=sampled.data$y, A=sampled.data$t, W=W, Delta=sampled.data$insubsample, Qform=Y ~A + poly(W2,2) + W1, g1W=sampled.data$pscore.svy, pDelta1=as.matrix(cbind(sampled.data$a0s1.ps, sampled.data$a1s1.ps)))
+	fit.tmle<-tmle(Y=sampled.data$y, A=sampled.data$t, W=W, Delta=sampled.data$insubsample, Qform=Y ~A + poly(W2,2) + W1, g1W=sampled.data$pscore.svy, pDelta1=(1/sampled.data$ipsvyselwt)*cbind(sampled.data$a0s1.ps, sampled.data$a1s1.ps), gbound=0.0001)
 
 	sampled.data$dif<-fit.tmle$Qstar[,2] - fit.tmle$Qstar[,1]
 	sampled.data$num<-sampled.data$dif*sampled.data$ipsvyselwt

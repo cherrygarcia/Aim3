@@ -93,8 +93,8 @@ tmle3<-function(data, txmodel, selmodel, outmodel){
         W2<-W[,2]
 
         fit.tmle<-tmle(Y=sampled.data$y, A=sampled.data$t, W=W, Delta=sampled.data$insubsample, 
-                 Qform=outmodel, g1W=sampled.data$pscore.svy, pDelta1=as.matrix(
-                   cbind(sampled.data$a0s1.ps, sampled.data$a1s1.ps)))
+                 Qform=outmodel, g1W=sampled.data$pscore.svy, pDelta1=(1/sampled.data$ipsvyselwt)*
+                   cbind(sampled.data$a0s1.ps, sampled.data$a1s1.ps), gbound=0.0001)
 
         sampled.data$dif<-fit.tmle$Qstar[,2] - fit.tmle$Qstar[,1]
         sampled.data$num<-sampled.data$dif*sampled.data$ipsvyselwt

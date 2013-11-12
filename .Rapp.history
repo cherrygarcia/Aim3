@@ -1,0 +1,22 @@
+library(ggplot2)#
+library(plyr)#
+library(gridExtra)#
+library(xtable)#
+#
+setwd("/Users/kararudolph/Aim3")#
+#setwd("/Users/kararudolph/Documents/PhD/NIMH/NCSA/cortisol/simulationproject/Rcode/3level")#
+## Scenario 1#
+#
+dats1<-read.csv("EffectsS1MMtrue.csv", header=TRUE, stringsAsFactors=FALSE)#
+covers1<-read.csv("CoverageATES1MMtrue.csv", header=TRUE, stringsAsFactors=FALSE)#
+vars1<-read.csv("VarS1MMtrue.csv", header=TRUE, stringsAsFactors=FALSE)#
+#
+tmleS1box<-c(dats1$Naive, dats1$trueIPTW, dats1$trueIPSW, dats1$trueIPTSvyW, dats1$trueIPW, dats1$trueTMLE2, dats1$trueTMLE3)#
+tmleS1cover<-c(covers1$Naive, covers1$trueIPTW, covers1$trueIPSW, covers1$trueIPTSvyW, covers1$trueIPW, covers1$trueTMLE2, covers1$trueTMLE3)#
+tmleS1var<-c(vars1$Naive, vars1$trueIPTW, vars1$trueIPSW, vars1$trueIPTSvyW, vars1$trueIPW, vars1$trueTMLE2, vars1$trueTMLE3)#
+#
+lab1<-c(rep("Naive", 1000), rep("trueIPTW", 1000), rep("trueIPSW", 1000), rep("trueIPTSvyW", 1000),  rep("trueIPW", 1000), rep("trueDRWLS", 1000),rep("trueTMLE", 1000) )#
+#
+tmleS1box.dat<-data.frame(tmleS1box, lab1)#
+tmleS1cover.dat<-data.frame(tmleS1cover, lab1)#
+tmleS1var.dat<-data.frame(tmleS1var, lab1)

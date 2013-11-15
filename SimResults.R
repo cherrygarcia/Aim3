@@ -12,10 +12,13 @@ setwd("/Users/kararudolph/Aim3")
 dats1<-read.csv("EffectsS1MMtrue.csv", header=TRUE, stringsAsFactors=FALSE)
 covers1<-read.csv("CoverageATES1MMtrue.csv", header=TRUE, stringsAsFactors=FALSE)
 vars1<-read.csv("VarS1MMtrue.csv", header=TRUE, stringsAsFactors=FALSE)
+datt1<-read.csv("EffectsS1TMLERD1.csv", header=TRUE, stringsAsFactors=FALSE)
+covert1<-read.csv("CoverageATES1TMLERD1.csv", header=TRUE, stringsAsFactors=FALSE)
+vart1<-read.csv("VarS1TMLERD1.csv", header=TRUE, stringsAsFactors=FALSE)
 
-tmleS1box<-c(dats1$Naive, dats1$trueIPTW, dats1$trueIPSW, dats1$trueIPTSvyW, dats1$trueIPW, dats1$trueTMLE2, dats1$trueTMLE3)
-tmleS1cover<-c(covers1$Naive, covers1$trueIPTW, covers1$trueIPSW, covers1$trueIPTSvyW, covers1$trueIPW, covers1$trueTMLE2, covers1$trueTMLE3)
-tmleS1var<-c(vars1$Naive, vars1$trueIPTW, vars1$trueIPSW, vars1$trueIPTSvyW, vars1$trueIPW, vars1$trueTMLE2, vars1$trueTMLE3)
+tmleS1box<-c(dats1$Naive, dats1$trueIPTW, dats1$trueIPSW, dats1$trueIPTSvyW, dats1$trueIPW, dats1$trueTMLE2, datt1$trueTMLE3)
+tmleS1cover<-c(covers1$Naive, covers1$trueIPTW, covers1$trueIPSW, covers1$trueIPTSvyW, covers1$trueIPW, covers1$trueTMLE2, covert1$trueTMLE3)
+tmleS1var<-c(vars1$Naive, vars1$trueIPTW, vars1$trueIPSW, vars1$trueIPTSvyW, vars1$trueIPW, vars1$trueTMLE2, vart1$trueTMLE3)
 
 lab1<-c(rep("Naive", 1000), rep("trueIPTW", 1000), rep("trueIPSW", 1000), rep("trueIPTSvyW", 1000),  rep("trueIPW", 1000), rep("trueDRWLS", 1000),rep("trueTMLE", 1000) )
 
@@ -57,10 +60,13 @@ k<-c(a[2,2], a[2,5], a[2,4], a[2,3], a[3,2], a[3,5], a[3,4], a[3,3], a[1,2], a[1
 dats2<-read.csv("EffectsS2MMtrue.csv", header=TRUE, stringsAsFactors=FALSE)
 covers2<-read.csv("CoverageATES2MMtrue.csv", header=TRUE, stringsAsFactors=FALSE)
 vars2<-read.csv("VarS2MMtrue.csv", header=TRUE, stringsAsFactors=FALSE)
+datt2<-read.csv("EffectsS2TMLERD1.csv", header=TRUE, stringsAsFactors=FALSE)
+covert2<-read.csv("CoverageATES2TMLERD1.csv", header=TRUE, stringsAsFactors=FALSE)
+vart2<-read.csv("VarS2TMLERD1.csv", header=TRUE, stringsAsFactors=FALSE)
 
-tmleS2box<-c(dats2$Naive, dats2$trueIPTW, dats2$trueIPSW, dats2$trueIPTSvyW, dats2$trueIPW, dats2$trueTMLE2, dats2$trueTMLE3)
-tmleS2cover<-c(covers2$Naive, covers2$trueIPTW, covers2$trueIPSW, covers2$trueIPTSvyW, covers2$trueIPW, covers2$trueTMLE2, covers2$trueTMLE3)
-tmleS2var<-c(vars2$Naive, vars2$trueIPTW, vars2$trueIPSW, vars2$trueIPTSvyW, vars2$trueIPW, vars2$trueTMLE2, vars2$trueTMLE3)
+tmleS2box<-c(dats2$Naive, dats2$trueIPTW, dats2$trueIPSW, dats2$trueIPTSvyW, dats2$trueIPW, dats2$trueTMLE2, datt2$trueTMLE3)
+tmleS2cover<-c(covers2$Naive, covers2$trueIPTW, covers2$trueIPSW, covers2$trueIPTSvyW, covers2$trueIPW, covers2$trueTMLE2, covert2$trueTMLE3)
+tmleS2var<-c(vars2$Naive, vars2$trueIPTW, vars2$trueIPSW, vars2$trueIPTSvyW, vars2$trueIPW, vars2$trueTMLE2, vart2$trueTMLE3)
 
 lab1<-c(rep("Naive", 1000), rep("trueIPTW", 1000), rep("trueIPSW", 1000), rep("trueIPTSvyW", 1000),  rep("trueIPW", 1000), rep("trueDRWLS", 1000),rep("trueTMLE", 1000) )
 
@@ -110,29 +116,37 @@ dat.S1misout<-read.csv("EffectsS1MMOut.csv", header=TRUE, stringsAsFactors=FALSE
 cover.S1misout<-read.csv("CoverageATES1MMOut.csv", header=TRUE, stringsAsFactors=FALSE)
 var.S1misout<-read.csv("VarS1MMOut.csv", header=TRUE, stringsAsFactors=FALSE)
 
-tmleS1box<-c( dat.S1mistx$IPWT1, dat.S1mistx$TMLE2T1, dat.S1mistx$TMLE3T1,
-dat.S1mistx$IPWT2, dat.S1mistx$TMLE2T2, dat.S1mistx$TMLE3T2, 
-dat.S1missel$IPWS1, dat.S1missel$TMLE2S1, dat.S1missel$TMLE3S1,
-dat.S1missel$IPWS2, dat.S1missel$TMLE2S2, dat.S1missel$TMLE3S2, 
-dat.S1misout$TMLE2O1, dat.S1misout$TMLE3O1,
-dat.S1misout$TMLE2O2, dat.S1misout$TMLE3O2, 
-dat.S1misout$TMLE2O3, dat.S1misout$TMLE3O3 )
+dat.S1TRD2<-read.csv("EffectsS1TMLERD2.csv", header=TRUE, stringsAsFactors=FALSE)
+dat.S1TRD3<-read.csv("EffectsS1TMLERD3.csv", header=TRUE, stringsAsFactors=FALSE)
+cover.S1TRD2<-read.csv("CoverageATES1TMLERD2.csv", header=TRUE, stringsAsFactors=FALSE)
+cover.S1TRD3<-read.csv("CoverageATES1TMLERD3.csv", header=TRUE, stringsAsFactors=FALSE)
+var.S1TRD2<-read.csv("VarS1TMLERD2.csv", header=TRUE, stringsAsFactors=FALSE)
+var.S1TRD3<-read.csv("VarS1TMLERD3.csv", header=TRUE, stringsAsFactors=FALSE)
 
-tmleS1cover<-c( cover.S1mistx$IPWT1, cover.S1mistx$TMLE2T1, cover.S1mistx$TMLE3T1,
-cover.S1mistx$IPWT2, cover.S1mistx$TMLE2T2, cover.S1mistx$TMLE3T2, 
-cover.S1missel$IPWS1, cover.S1missel$TMLE2S1, cover.S1missel$TMLE3S1,
-cover.S1missel$IPWS2, cover.S1missel$TMLE2S2, cover.S1missel$TMLE3S2,  
-cover.S1misout$TMLE2O1, cover.S1misout$TMLE3O1,
-cover.S1misout$TMLE2O2, cover.S1misout$TMLE3O2, 
-cover.S1misout$TMLE2O3, cover.S1misout$TMLE3O3 )
 
-tmleS1var<-c( var.S1mistx$IPWT1, var.S1mistx$TMLE2T1, var.S1mistx$TMLE3T1,
-var.S1mistx$IPWT2, var.S1mistx$TMLE2T2, var.S1mistx$TMLE3T2, 
-var.S1missel$IPWS1, var.S1missel$TMLE2S1, var.S1missel$TMLE3S1,
-var.S1missel$IPWS2, var.S1missel$TMLE2S2, var.S1missel$TMLE3S2, 
-var.S1misout$TMLE2O1, var.S1misout$TMLE3O1,
-var.S1misout$TMLE2O2, var.S1misout$TMLE3O2, 
-var.S1misout$TMLE2O3, var.S1misout$TMLE3O3 )
+tmleS1box<-c( dat.S1mistx$IPWT1, dat.S1mistx$TMLE2T1, datt1$TMLE3T1,
+dat.S1mistx$IPWT2, dat.S1mistx$TMLE2T2, dat.S1TRD2$TMLE3T2, 
+dat.S1missel$IPWS1, dat.S1missel$TMLE2S1, dat.S1TRD2$TMLE3S1,
+dat.S1missel$IPWS2, dat.S1missel$TMLE2S2, dat.S1TRD2$TMLE3S2, 
+dat.S1misout$TMLE2O1, dat.S1TRD3$TMLE3O1,
+dat.S1misout$TMLE2O2, dat.S1TRD3$TMLE3O2, 
+dat.S1misout$TMLE2O3, dat.S1TRD3$TMLE3O3 )
+
+tmleS1cover<-c( cover.S1mistx$IPWT1, cover.S1mistx$TMLE2T1, covert1$TMLE3T1,
+cover.S1mistx$IPWT2, cover.S1mistx$TMLE2T2, cover.S1TRD2$TMLE3T2, 
+cover.S1missel$IPWS1, cover.S1missel$TMLE2S1, cover.S1TRD2$TMLE3S1,
+cover.S1missel$IPWS2, cover.S1missel$TMLE2S2, cover.S1TRD2$TMLE3S2,  
+cover.S1misout$TMLE2O1, cover.S1TRD3$TMLE3O1,
+cover.S1misout$TMLE2O2, cover.S1TRD3$TMLE3O2, 
+cover.S1misout$TMLE2O3, cover.S1TRD3$TMLE3O3 )
+
+tmleS1var<-c( var.S1mistx$IPWT1, var.S1mistx$TMLE2T1, vart1$TMLE3T1,
+var.S1mistx$IPWT2, var.S1mistx$TMLE2T2, var.S1TRD2$TMLE3T2, 
+var.S1missel$IPWS1, var.S1missel$TMLE2S1, var.S1TRD2$TMLE3S1,
+var.S1missel$IPWS2, var.S1missel$TMLE2S2, var.S1TRD2$TMLE3S2, 
+var.S1misout$TMLE2O1, var.S1TRD3$TMLE3O1,
+var.S1misout$TMLE2O2, var.S1TRD3$TMLE3O2, 
+var.S1misout$TMLE2O3, var.S1TRD3$TMLE3O3 )
 
 labS2<-c(rep("IPW", 1000), rep("DRWLS", 1000),  rep("TMLE", 1000), rep("IPW", 1000), rep("DRWLS", 1000),  rep("TMLE", 1000), 
   rep("IPW", 1000), rep("DRWLS", 1000),  rep("TMLE", 1000), rep("IPW", 1000), rep("DRWLS", 1000),  rep("TMLE", 1000), 
@@ -188,29 +202,36 @@ dat.S2misout<-read.csv("EffectsS2MMOut.csv", header=TRUE, stringsAsFactors=FALSE
 cover.S2misout<-read.csv("CoverageATES2MMOut.csv", header=TRUE, stringsAsFactors=FALSE)
 var.S2misout<-read.csv("VarS2MMOut.csv", header=TRUE, stringsAsFactors=FALSE)
 
-tmleS2box<-c( dat.S2mistx$IPWT1, dat.S2mistx$TMLE2T1, dat.S2mistx$TMLE3T1,
-dat.S2mistx$IPWT2, dat.S2mistx$TMLE2T2, dat.S2mistx$TMLE3T2, 
-dat.S2missel$IPWS1, dat.S2missel$TMLE2S1, dat.S2missel$TMLE3S1,
-dat.S2missel$IPWS2, dat.S2missel$TMLE2S2, dat.S2missel$TMLE3S2, 
-dat.S2misout$TMLE2O1, dat.S2misout$TMLE3O1,
-dat.S2misout$TMLE2O2, dat.S2misout$TMLE3O2, 
-dat.S2misout$TMLE2O3, dat.S2misout$TMLE3O3 )
+dat.S2TRD2<-read.csv("EffectsS2TMLERD2.csv", header=TRUE, stringsAsFactors=FALSE)
+dat.S2TRD3<-read.csv("EffectsS2TMLERD3.csv", header=TRUE, stringsAsFactors=FALSE)
+cover.S2TRD2<-read.csv("CoverageATES2TMLERD2.csv", header=TRUE, stringsAsFactors=FALSE)
+cover.S2TRD3<-read.csv("CoverageATES2TMLERD3.csv", header=TRUE, stringsAsFactors=FALSE)
+var.S2TRD2<-read.csv("VarS2TMLERD2.csv", header=TRUE, stringsAsFactors=FALSE)
+var.S2TRD3<-read.csv("VarS2TMLERD3.csv", header=TRUE, stringsAsFactors=FALSE)
 
-tmleS2cover<-c( cover.S2mistx$IPWT1, cover.S2mistx$TMLE2T1, cover.S2mistx$TMLE3T1,
-cover.S2mistx$IPWT2, cover.S2mistx$TMLE2T2, cover.S2mistx$TMLE3T2, 
-cover.S2missel$IPWS1, cover.S2missel$TMLE2S1, cover.S2missel$TMLE3S1,
-cover.S2missel$IPWS2, cover.S2missel$TMLE2S2, cover.S2missel$TMLE3S2,  
-cover.S2misout$TMLE2O1, cover.S2misout$TMLE3O1,
-cover.S2misout$TMLE2O2, cover.S2misout$TMLE3O2, 
-cover.S2misout$TMLE2O3, cover.S2misout$TMLE3O3 )
+tmleS2box<-c( dat.S2mistx$IPWT1, dat.S2mistx$TMLE2T1, datt2$TMLE3T1,
+dat.S2mistx$IPWT2, dat.S2mistx$TMLE2T2, dat.S2TRD2$TMLE3T2, 
+dat.S2missel$IPWS1, dat.S2missel$TMLE2S1, dat.S2TRD2$TMLE3S1,
+dat.S2missel$IPWS2, dat.S2missel$TMLE2S2, dat.S2TRD2$TMLE3S2, 
+dat.S2misout$TMLE2O1, dat.S2TRD3$TMLE3O1,
+dat.S2misout$TMLE2O2, dat.S2TRD3$TMLE3O2, 
+dat.S2misout$TMLE2O3, dat.S2TRD3$TMLE3O3 )
 
-tmleS2var<-c( var.S2mistx$IPWT1, var.S2mistx$TMLE2T1, var.S2mistx$TMLE3T1,
-var.S2mistx$IPWT2, var.S2mistx$TMLE2T2, var.S2mistx$TMLE3T2, 
-var.S2missel$IPWS1, var.S2missel$TMLE2S1, var.S2missel$TMLE3S1,
-var.S2missel$IPWS2, var.S2missel$TMLE2S2, var.S2missel$TMLE3S2, 
-var.S2misout$TMLE2O1, var.S2misout$TMLE3O1,
-var.S2misout$TMLE2O2, var.S2misout$TMLE3O2, 
-var.S2misout$TMLE2O3, var.S2misout$TMLE3O3 )
+tmleS2cover<-c( cover.S2mistx$IPWT1, cover.S2mistx$TMLE2T1, covert2$TMLE3T1,
+cover.S2mistx$IPWT2, cover.S2mistx$TMLE2T2, cover.S2TRD2$TMLE3T2, 
+cover.S2missel$IPWS1, cover.S2missel$TMLE2S1, cover.S2TRD2$TMLE3S1,
+cover.S2missel$IPWS2, cover.S2missel$TMLE2S2, cover.S2TRD2$TMLE3S2,  
+cover.S2misout$TMLE2O1, cover.S2TRD3$TMLE3O1,
+cover.S2misout$TMLE2O2, cover.S2TRD3$TMLE3O2, 
+cover.S2misout$TMLE2O3, cover.S2TRD3$TMLE3O3 )
+
+tmleS2var<-c( var.S2mistx$IPWT1, var.S2mistx$TMLE2T1, vart2$TMLE3T1,
+var.S2mistx$IPWT2, var.S2mistx$TMLE2T2, var.S2TRD2$TMLE3T2, 
+var.S2missel$IPWS1, var.S2missel$TMLE2S1, var.S2TRD2$TMLE3S1,
+var.S2missel$IPWS2, var.S2missel$TMLE2S2, var.S2TRD2$TMLE3S2, 
+var.S2misout$TMLE2O1, var.S2TRD3$TMLE3O1,
+var.S2misout$TMLE2O2, var.S2TRD3$TMLE3O2, 
+var.S2misout$TMLE2O3, var.S2TRD3$TMLE3O3 )
 
 labS2<-c(rep("IPW", 1000), rep("DRWLS", 1000),  rep("TMLE", 1000), rep("IPW", 1000), rep("DRWLS", 1000),  rep("TMLE", 1000), 
   rep("IPW", 1000), rep("DRWLS", 1000),  rep("TMLE", 1000), rep("IPW", 1000), rep("DRWLS", 1000),  rep("TMLE", 1000), 
